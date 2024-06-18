@@ -53,7 +53,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="txt_dv" class="form-label">Dv</label>
-                            <input type="text" class="form-control" id="txt_dv" maxlength="1" required>
+                            <input type="text" class="form-control" id="txt_dv" maxlength="1" pattern="[0-9kK]" title="El dígito verificador debe ser un número del 0 al 9 o la letra k" required>
                             <div id="comentariosHelp" class="form-text">Ingrese el digito verificador del rut</div>
                         </div>
                         <div class="mb-3">
@@ -73,7 +73,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="txt_celular" class="form-label">Celular</label>
-                            <input type="tel" class="form-control" id="txt_celular" required>
+                            <input type="number" class="form-control" id="txt_celular" required>
                             <div id="comentariosHelp" class="form-text"></div>
                         </div>
                         <input type="button" class="btn btn-primary" value="Enviar" data-bs-toggle="modal" data-bs-target="#confirmUpdateModal">
@@ -91,13 +91,12 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  ¿Está seguro de agregar el cliente?
+                  <!--Alerta-->
+                  <div id="alert-container" style="margin: 0 auto;"></div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                   <button type="button" class="btn btn-primary" onclick="agregarCliente();">Enviar</button>
-                  <!--Alerta-->
-                  <div id="alert-container"></div>
                 </div>
               </div>
             </div>

@@ -10,6 +10,47 @@ function agregarCliente() {
     var apellidos = document.getElementById("txt_apellido").value;
     var email = document.getElementById("txt_email").value;
     var celular = document.getElementById("txt_celular").value;
+
+    // Validaciones
+    // Validar id_cliente
+    if (id_cliente == "") {
+        mostrarAlerta("Error Id Cliente: Campo obligatorio");
+        return;
+    }
+    if (id_cliente == id_cliente){
+        mostrarAlerta("Error Id Cliente: El cliente ya existe");
+        return;
+    }
+    // Validar dv
+    const dvValido = /^[0-9kK]$/;
+    if (dv == "") {
+        mostrarAlerta("Error Dv: Campo obligatorio");
+        return;
+    }
+    if (!dvValido.test(dv)) {
+        mostrarAlerta("Error Dv: Número del 0 al 9 o la letra k");
+        return;
+    }
+    // Validar nombres
+    if (nombres == "") {
+        mostrarAlerta("Error Nombres: Campo obligatorio");
+        return;
+    }
+    // Validar apellidos
+    if (apellidos == "") {
+        mostrarAlerta("Error Apellidos: Campo obligatorio");
+        return;
+    }
+    // Validar email
+    if (email == "") {
+        mostrarAlerta("Error Email: Campo obligatorio");
+        return;
+    }
+    // Validar celular
+    if (celular == "") {
+        mostrarAlerta("Error Celular: Campo obligatorio");
+        return;
+    }
     // Agreganis api cliente
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -230,7 +271,7 @@ function obtenerFechaHora(){
 }
 
 // Funcion para mostrar alerta en caso de error
-function mostrarAlerta(mensaje, tipo){
+function mostrarAlerta(mensaje){
     const alertContainer = document.getElementById('alert-container');
-    alertContainer.innerHTML = `<div class="alert alert-${tipo} alert-dismissible fade show" role="alert">${mensaje}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
+    alertContainer.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">${mensaje}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
 }

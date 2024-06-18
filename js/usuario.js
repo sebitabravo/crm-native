@@ -243,17 +243,7 @@ function obtenerFechaHora(){
 }
 
 // Funcion para mostrar alerta en caso de error
-function mostrarAlerta(mensaje, tipo){
+function mostrarAlerta(mensaje){
     const alertContainer = document.getElementById('alert-container');
-    alertContainer.innerHTML = `<div class="alert alert-${tipo} alert-dismissible fade show" role="alert">${mensaje}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
-}
-
-// Funcion para validar formulario
-function validarFormulario() {
-    const form = document.getElementById('usuarioForm');
-    if (!form.checkValidity()) {
-        form.reportValidity();
-        return false;
-    }
-    return true;
+    alertContainer.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">${mensaje}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
 }
