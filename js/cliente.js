@@ -10,7 +10,6 @@ function agregarCliente() {
     var apellidos = document.getElementById("txt_apellido").value;
     var email = document.getElementById("txt_email").value;
     var celular = document.getElementById("txt_celular").value;
-
     // Validaciones
     // Validar id_cliente
     if (id_cliente == "") {
@@ -197,6 +196,37 @@ function actualizarCliente(){
     var apellidos = document.getElementById("txt_apellido").value;
     var email = document.getElementById("txt_email").value;
     var celular = document.getElementById("txt_celular").value;
+    // Validaciones
+    // Validar dv
+    const dvValido = /^[0-9kK]$/;
+    if (dv == "") {
+        mostrarAlerta("Error Dv: Campo obligatorio");
+        return;
+    }
+    if (!dvValido.test(dv)) {
+        mostrarAlerta("Error Dv: Número del 0 al 9 o la letra k");
+        return;
+    }
+    // Validar nombres
+    if (nombres == "") {
+        mostrarAlerta("Error Nombres: Campo obligatorio");
+        return;
+    }
+    // Validar apellidos
+    if (apellidos == "") {
+        mostrarAlerta("Error Apellidos: Campo obligatorio");
+        return;
+    }
+    // Validar email
+    if (email == "") {
+        mostrarAlerta("Error Email: Campo obligatorio");
+        return;
+    }
+    // Validar celular
+    if (celular == "") {
+        mostrarAlerta("Error Celular: Campo obligatorio");
+        return;
+    }
     // Agregar api resultado
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
