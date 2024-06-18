@@ -12,6 +12,52 @@ function agregarUsuario() {
     var celular = document.getElementById("txt_celular").value;
     var username = document.getElementById("txt_username").value;
     var password = document.getElementById("txt_password").value;
+    // Validaciones
+    // Validar id_usuario
+    if (id_usuario == "") {
+        mostrarAlerta("Error Id Usuario: Campo obligatorio");
+        return;
+    }
+    // Validar dv
+    const dvValido = /^[0-9kK]$/;
+    if (dv == "") {
+        mostrarAlerta("Error Dv: Campo obligatorio");
+        return;
+    }
+    if (!dvValido.test(dv)) {
+        mostrarAlerta("Error Dv: Número del 0 al 9 o la letra k");
+        return;
+    }
+    // Validar nombres
+    if (nombres == "") {
+        mostrarAlerta("Error Nombres: Campo obligatorio");
+        return;
+    }
+    // Validar apellidos
+    if (apellidos == "") {
+        mostrarAlerta("Error Apellidos: Campo obligatorio");
+        return;
+    }
+    // Validar email
+    if (email == "") {
+        mostrarAlerta("Error Email: Campo obligatorio");
+        return;
+    }
+    // Validar celular
+    if (celular == "") {
+        mostrarAlerta("Error Celular: Campo obligatorio");
+        return;
+    }
+    // Validar username
+    if (username == "") {
+        mostrarAlerta("Error Username: Campo obligatorio");
+        return;
+    }
+    // Validar password
+    if (password == "") {
+        mostrarAlerta("Error Password: Campo obligatorio");
+        return;
+    }
     // Agreganis api cliente
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -42,7 +88,7 @@ function agregarUsuario() {
             location.href = "listar.html";
         }
         if(response.status == 400){
-            mostrarAlerta("No se pudo agregar el usuario");
+            mostrarAlerta("El usuario ya existe");
         }
     })
     .then(result => console.log(result))
@@ -171,6 +217,47 @@ function actualizarUsuario(){
     var celular = document.getElementById("txt_celular").value;
     var username = document.getElementById("txt_username").value;
     var password = document.getElementById("txt_password").value;
+    // Validaciones
+    // Validar dv
+    const dvValido = /^[0-9kK]$/;
+    if (dv == "") {
+        mostrarAlerta("Error Dv: Campo obligatorio");
+        return;
+    }
+    if (!dvValido.test(dv)) {
+        mostrarAlerta("Error Dv: Número del 0 al 9 o la letra k");
+        return;
+    }
+    // Validar nombres
+    if (nombres == "") {
+        mostrarAlerta("Error Nombres: Campo obligatorio");
+        return;
+    }
+    // Validar apellidos
+    if (apellidos == "") {
+        mostrarAlerta("Error Apellidos: Campo obligatorio");
+        return;
+    }
+    // Validar email
+    if (email == "") {
+        mostrarAlerta("Error Email: Campo obligatorio");
+        return;
+    }
+    // Validar celular
+    if (celular == "") {
+        mostrarAlerta("Error Celular: Campo obligatorio");
+        return;
+    }
+    // Validar username
+    if (username == "") {
+        mostrarAlerta("Error Username: Campo obligatorio");
+        return;
+    }
+    // Validar password
+    if (password == "") {
+        mostrarAlerta("Error Password: Campo obligatorio");
+        return;
+    }
     // Agregar api resultado
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
