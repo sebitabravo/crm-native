@@ -17,10 +17,6 @@ function agregarCliente() {
         mostrarAlerta("Error Id Cliente: Campo obligatorio");
         return;
     }
-    if (id_cliente == id_cliente){
-        mostrarAlerta("Error Id Cliente: El cliente ya existe");
-        return;
-    }
     // Validar dv
     const dvValido = /^[0-9kK]$/;
     if (dv == "") {
@@ -79,7 +75,7 @@ function agregarCliente() {
             location.href = "listar.html";
         }
         if(response.status == 400){
-            mostrarAlerta("No se pudo agregar el cliente");
+            mostrarAlerta("El cliente ya existe");
         }
     })
     .then(result => console.log(result))
