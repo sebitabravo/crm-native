@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/cliente/listar.html"
+    },
+    {
+      "src": "/cliente/(.*)",
+      "dest": "/cliente/$1"
+    },
+    {
+      "src": "/tipogestion/(.*)",
+      "dest": "/tipogestion/$1"
+    },
+    {
+      "src": "/usuario/(.*)",
+      "dest": "/usuario/$1"
+    },
+    {
+      "src": "/resultado/(.*)",
+      "dest": "/resultado/$1"
+    },
+    {
+      "src": "/gestion/(.*)",
+      "dest": "/gestion/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
